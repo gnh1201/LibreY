@@ -12,8 +12,8 @@
         "request_cooldown" => ${CONFIG_RATE_LIMIT_COOLDOWN},
         "cache_time" => ${CONFIG_CACHE_TIME},
         "disable_api" => ${CONFIG_DISABLE_API},
-	"show_result_source" => ${CONFIG_SHOW_RESULT_SOURCE},
-	"default_theme" => "${CONFIG_DEFAULT_THEME}",
+        "show_result_source" => ${CONFIG_SHOW_RESULT_SOURCE},
+        "default_theme" => "${CONFIG_DEFAULT_THEME}",
 
         "frontends" => array(
             "invidious" => array(
@@ -121,6 +121,9 @@
             CURLOPT_TIMEOUT => ${CURLOPT_TIMEOUT},
             CURLOPT_VERBOSE => ${CURLOPT_VERBOSE},
             CURLOPT_FOLLOWLOCATION => ${CURLOPT_FOLLOWLOCATION}
-        )
+        ),
+
+        "searchapi_apikey" => ${SEARCHAPI_APIKEY}
+
     );
 ?>
