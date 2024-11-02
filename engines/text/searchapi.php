@@ -6,13 +6,14 @@
             $api_key = $this->opts->searchapi_apikey;
             
             // Base URL for the SearchAPI request
+            $query_encoded = str_replace("%22", "\"", urlencode($this->query));
             $url = "https://www.searchapi.io/api/v1/search";
             
             // Set up query parameters for the request
             $params = array(
                 "engine" => "google",
-                "q" => $this->query,
-                "api_key" => $this->api_key
+                "q" => $query_encoded,
+                "api_key" => $api_key
             );
 
             // Concatenate URL with query parameters
