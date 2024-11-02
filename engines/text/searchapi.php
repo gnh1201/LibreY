@@ -1,4 +1,6 @@
 <?php
+    // SearchApi: https://www.searchapi.io/?via=namhyeon
+
     class SearchApiRequest extends EngineRequest {
 
         public function get_request_url() {
@@ -13,6 +15,8 @@
             $params = array(
                 "engine" => "google",
                 "q" => $query_encoded,
+                "nfpr" => "1",
+                "page" => $this->page,
                 "api_key" => $api_key
             );
 
