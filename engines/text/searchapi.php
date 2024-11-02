@@ -6,16 +6,15 @@
         public function get_request_url() {
             // API key
             $api_key = $this->opts->searchapi_apikey;
-            
+
             // Base URL for the SearchAPI request
-            $query_encoded = str_replace("%22", "\"", urlencode($this->query));
             $page = floor($this->page / $this->opts->number_of_results) + 1;
             $url = "https://www.searchapi.io/api/v1/search";
 
             // Set up query parameters for the request
             $params = array(
                 "engine" => "google",
-                "q" => $query_encoded,
+                "q" => $this->query,
                 "nfpr" => "1",
                 "page" => $page,
                 "api_key" => $api_key
