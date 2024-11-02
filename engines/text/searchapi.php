@@ -9,7 +9,7 @@
             
             // Base URL for the SearchAPI request
             $query_encoded = str_replace("%22", "\"", urlencode($this->query));
-            $page = $this->page > 0 ? $this->page : 1;
+            $page = floor($this->page / $this->opts->number_of_results) + 1;
             $url = "https://www.searchapi.io/api/v1/search";
 
             // Set up query parameters for the request
