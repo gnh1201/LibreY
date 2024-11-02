@@ -1,8 +1,10 @@
 <?php
     class SearchApiRequest extends EngineRequest {
-        private $api_key = $this->opts->searchapi_apikey;  // API key
 
         public function get_request_url() {
+            // API key
+            $api_key = $this->opts->searchapi_apikey;
+            
             // Base URL for the SearchAPI request
             $url = "https://www.searchapi.io/api/v1/search";
             
