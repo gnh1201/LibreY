@@ -1,6 +1,6 @@
 services:
   librey:
-    image: ghcr.io/ahwxorg/librey:latest
+    image: docker.io/gnh1201/librey:latest
     container_name: librey
     network_mode: bridge
     ports:
@@ -22,6 +22,7 @@ services:
       - CURLOPT_PROXYTYPE=CURLPROXY_HTTP
       - CURLOPT_USERAGENT=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:116.0) Gecko/20100101 Firefox/116.0
       - CURLOPT_FOLLOWLOCATION=true
+      - SEARCHAPI_APIKEY=
     volumes:
       # - ./nginx_logs:/var/log/nginx # Disabled by default. These are the NGINX request logs.
       - ./php_logs:/var/log/php83 # Enabled by default. These are the PHP error logs.
