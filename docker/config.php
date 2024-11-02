@@ -123,7 +123,7 @@
             CURLOPT_FOLLOWLOCATION => ${CURLOPT_FOLLOWLOCATION}
         ),
 
-        "searchapi_apikey" => ${SEARCHAPI_APIKEY}
+        "searchapi_apikey" => "${SEARCHAPI_APIKEY}"
 
     );
 ?>
