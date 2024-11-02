@@ -8,7 +8,8 @@
             $api_key = $this->opts->searchapi_apikey;
 
             // Base URL for the SearchAPI request
-            $page = floor($this->page / $this->opts->number_of_results) + 1;
+            $num = $this->opts->number_of_results;
+            $page = floor($this->page / $num) + 1;
             $url = "https://www.searchapi.io/api/v1/search";
 
             // Set up query parameters for the request
@@ -16,6 +17,7 @@
                 "engine" => "google",
                 "q" => $this->query,
                 "nfpr" => "1",
+                "num" => $num,
                 "page" => $page,
                 "api_key" => $api_key
             );
