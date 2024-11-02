@@ -9,14 +9,15 @@
             
             // Base URL for the SearchAPI request
             $query_encoded = str_replace("%22", "\"", urlencode($this->query));
+            $page = $this->page > 0 ? $this->page : 1;
             $url = "https://www.searchapi.io/api/v1/search";
-            
+
             // Set up query parameters for the request
             $params = array(
                 "engine" => "google",
                 "q" => $query_encoded,
                 "nfpr" => "1",
-                "page" => $this->page,
+                "page" => $page,
                 "api_key" => $api_key
             );
 
