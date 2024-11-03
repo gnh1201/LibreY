@@ -1,6 +1,12 @@
 <?php
     function get_engines() {
-        return array("google", "duckduckgo", "brave", "yandex", "ecosia", "mojeek", "searchapi");
+        $engines = array("google", "duckduckgo", "brave", "yandex", "ecosia", "mojeek");
+
+        if (!empty($this->opts->searchapi_apikey)) {
+            array_push($engines, "searchapi");
+        }
+
+        return $engines;
     }
 
     class TextSearch extends EngineRequest {
