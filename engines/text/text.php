@@ -1,12 +1,6 @@
 <?php
     function get_engines() {
-        $engines = array("google", "duckduckgo", "brave", "yandex", "ecosia", "mojeek");
-
-        if (!empty($this->opts->searchapi_apikey)) {
-            array_push($engines, "searchapi");
-        }
-
-        return $engines;
+        return array("google", "duckduckgo", "brave", "yandex", "ecosia", "mojeek");
     }
 
     class TextSearch extends EngineRequest {
@@ -14,6 +8,11 @@
         public function __construct($opts, $mh) {
             $this->engines = get_engines();
             shuffle($this->engines);
+
+            // Commercial SERPs are subordinated to reduce costs.
+            if (!empty($opts->searchapi_apikey)) {
+                array_push($this->engines, "searchapi");
+            }
 
             $this->query = $opts->query;
             $this->cache_key = "text:" . $this->query . "p" . $opts->page . "l" . $opts->language;
