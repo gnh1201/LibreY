@@ -24,6 +24,9 @@
     }
 
     $results = fetch_search_results($opts, false);
+    if (array_key_exists("error", $results)) {
+        http_response_code(418);  // I'm a teapot
+    }
     header("Content-Type: application/json");
     echo json_encode($results);
 ?>
